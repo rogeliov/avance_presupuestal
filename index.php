@@ -1,4 +1,6 @@
 <?php
+$carpeta_archivo = "AvancePresupuesto";
+//$carpeta_archivo = "DrivePHP";
 $include_path = '/opt/lampp/htdocs/AvancePresupuesto/';
 //$include_path = "";
 require_once $include_path.'google-api-php-client/src/Google/autoload.php';
@@ -89,7 +91,7 @@ function printParents($service, $fileId) {
 
 session_start();
 
-function principal(){
+function principal($carpeta_archivo){
     $archivos=array();
     $client = new Google_Client();
     $client->setAuthConfigFile('client_secret_166812253810-gg40f3a5e94blpb3k1263knjb7jvcnrp.apps.googleusercontent.com.json');
@@ -119,7 +121,7 @@ function principal(){
     
     } 
     else {
-        $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/AvancePresupuesto/oauth2callback.php';
+        $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/'.$carpeta_archivo.'/oauth2callback.php';
         header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
     }
     return $archivos;
@@ -138,7 +140,7 @@ function principal(){
     <title>Avance Presupuestal</title>
 </head>
 <body>
-    <?php $presupuestos = principal();?>
+    <?php $presupuestos = principal($carpeta_archivo);?>
     <div class="container">
         <div style="text-align: center;">
             <h2>Generación de datos crudos para Avance Presupuestal y Flujo</h2>
