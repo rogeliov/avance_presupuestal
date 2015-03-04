@@ -119,7 +119,7 @@ function principal(){
     
     } 
     else {
-        $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/DrivePHP/oauth2callback.php';
+        $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/AvancePresupuesto/oauth2callback.php';
         header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
     }
     return $archivos;

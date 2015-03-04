@@ -8,7 +8,7 @@ session_start();
 
 $client = new Google_Client();
 $client->setAuthConfigFile('client_secret_166812253810-gg40f3a5e94blpb3k1263knjb7jvcnrp.apps.googleusercontent.com.json');
-$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/DrivePHP/oauth2callback.php');
+$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/AvancePresupuesto/oauth2callback.php');
 $client->addScope(Google_Service_Drive::DRIVE);
 $client->addScope(Google_Service_Drive::DRIVE_FILE);
 $client->addScope(Google_Service_Drive::DRIVE_READONLY);
